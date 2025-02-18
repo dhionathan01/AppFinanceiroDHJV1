@@ -1,12 +1,41 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import { Container } from './styles';
+import { Background, Container, Logo, AreaInput, Input, SubmitButton, SubmitText, Link, LinkText } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignIn() {
+    const navigation = useNavigation();
     return (
-        <View>
-            <Text>Tela Login</Text>
-        </View>
+        <Background>
+            <Container
+                behavior={Platform.OS === 'ios' ? 'padding' : false}
+                enabled
+            >
+                    <Logo
+                        source={require('../../assets/Logo.png')}
+                    />
+                    <AreaInput>
+                        <Input
+                            placeholder={"Seu email"}
+                        />
+                    </AreaInput>
+                    <AreaInput>
+                        <Input
+                            placeholder={"Sua senha"}
+                        />
+                </AreaInput>
+                    <SubmitButton activeOpacity={0.8}>
+                        <SubmitText>Acessar</SubmitText>
+                </SubmitButton>
+                <Link onPress={()=> navigation.navigate('SignUp')}>
+                    <LinkText>
+                        Criar uma conta!
+                    </LinkText>
+                </Link>
+                </Container>
+        </Background>
     )   
 }
