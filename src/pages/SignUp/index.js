@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, Platform } from 'react-native';
 
 // import { Container } from './styles';
 import { Background, Container, AreaInput, Input, SubmitButton, SubmitText } from '../SignIn/styles';
 
+import { AuthContext } from '../../contexts/auth';
+
 export default function SignUp() {
+    const { user } = useContext(AuthContext)
+    function handleSignUp() {
+        console.log(user)
+        alert('Teste')
+    }
     return (
        <Background>
             <Container
@@ -19,7 +26,7 @@ export default function SignUp() {
                 <AreaInput>
                     <Input placeholder={ "Sua senha"} />
                 </AreaInput>
-                <SubmitButton>
+                <SubmitButton onPress={handleSignUp}>
                     <SubmitText>Cadastrar</SubmitText>
                 </SubmitButton>
             </Container>
