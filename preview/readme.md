@@ -9,3 +9,6 @@
 
 # Criando o backend e a API:
 ![alt text](image-3.png)
+
+# Logout
+![alt text](logout.gif)

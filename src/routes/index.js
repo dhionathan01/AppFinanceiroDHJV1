@@ -6,6 +6,7 @@ import AppRoutes from "./app.routes";
 
 function Routes() {
     const { signed, loading } = useContext(AuthContext);
+    console.log(useContext(AuthContext))
     if (loading) {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
