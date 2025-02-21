@@ -42,7 +42,7 @@ export default function Home() {
             <ListaBalance
                 data={listBalance}
                 horizontal={true}
-                showsHorizontalScrollIndcator={false}
+                showsHorizontalScrollIndicator={false}
                 keyExtractor={item => item.tag}
                 renderItem={({ item }) => (
                     <BalanceItem data={item} />
