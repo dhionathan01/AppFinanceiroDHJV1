@@ -20,3 +20,9 @@
 ![alt text](cards_movimentacao.gif)
 # Tela New
 ![alt text](tela_new.gif)
+
+# Criando botões de seleção
+![alt text](image-4.png)
+
+# Adicionando novas receitas e despesas
+![alt text](adicionan_novas_despesas_receitas.gif)
