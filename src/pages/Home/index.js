@@ -1,16 +1,17 @@
 import React, {useContext, useEffect, useState} from "react";
-import { View, Text, Button } from "react-native"
+import { View, Text, Button, TouchableOpacity } from "react-native"
 
 import { AuthContext } from "../../contexts/auth";
 
 import Header from '../../components/Header';
-import { Background, ListaBalance } from "./styles";
+import { Background, ListaBalance, Area, Title, List } from "./styles";
 
 import api from "../../services/api";
 import { format } from "date-fns";
 import { useIsFocused } from "@react-navigation/native";
 import BalanceItem from "../../components/BalanceItem";
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import HistoricoList from "../../components/HistoricoList";
 export default function Home() {
     const { signOut, user } = useContext(AuthContext)
     const isFocused = useIsFocused();
@@ -48,6 +49,22 @@ export default function Home() {
                     <BalanceItem data={item} />
                 ) }
             />
+            <Area>
+                <TouchableOpacity>
+                    <Icon name={"event"} color={"#121212"} size={30} />
+                </TouchableOpacity>
+                <Title>Ultimas movimentações</Title>
+            </Area>
+            <List
+                data={[]}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+                renderItem={({ item }) => (
+                    <HistoricoList/>
+                )}
+            >
+
+            </List>
         </Background>
     )
 }
