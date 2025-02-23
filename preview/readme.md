@@ -4,7 +4,7 @@
 # Criando a tela de login:
 ![alt text](criando_tela_de_login_e_criacao.gif)
 
-# Tela de Cria��o SigUp
+# Tela de Criação SigUp
 ![alt text](image-2.png)
 
 # Criando o backend e a API:
@@ -12,3 +12,11 @@
 
 # Logout
 ![alt text](logout.gif)
+
+# Criando o header e aplicando um botão menu de navegação
+![alt text](header_button.gif)
+
+# Cards de movimentação:
+![alt text](cards_movimentacao.gif)
+# Tela New
+![alt text](tela_new.gif)
