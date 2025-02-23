@@ -26,3 +26,6 @@
 
 # Adicionando novas receitas e despesas
 ![alt text](adicionan_novas_despesas_receitas.gif)
+
+# Listagem de receitas e despesas
+![alt text](image-5.png)

@@ -17,19 +17,25 @@ export default function Home() {
     const isFocused = useIsFocused();
     const [listBalance, setListBalance] = useState([]);
     const [dateMovements, setDateMovements] = useState(new Date())
+    const [movements, setMovements] = useState([]);
 
     useEffect(() => {
         let isActivate = true;
 
         async function getMovements() {
             let dateFormated = format(dateMovements, 'dd/MM/yyyy')
-
+            const receives = await api.get('/receives', {
+                params: {
+                    date: dateFormated
+                }
+            })
             const balance = await api.get('/balance', {
                 params: {
                     date: dateFormated
                 }
             })
             if (isActivate) {
+                setMovements(receives.data)
                 setListBalance(balance.data)
             }
         }
@@ -37,6 +43,7 @@ export default function Home() {
 
         return () => isActivate = false;
     }, [isFocused])
+    console.log(movements)
     return (
         <Background>
             <Header title={'Minhas movimentações'} />
@@ -55,16 +62,15 @@ export default function Home() {
                 </TouchableOpacity>
                 <Title>Ultimas movimentações</Title>
             </Area>
+           
             <List
-                data={[]}
+                data={movements}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
-                renderItem={({ item }) => (
-                    <HistoricoList/>
-                )}
-            >
+                contetnContainerStyle={{paddingBottom:20}}
+                renderItem={({ item }) => <HistoricoList data={ item} />}
+            />
 
-            </List>
         </Background>
     )
 }
