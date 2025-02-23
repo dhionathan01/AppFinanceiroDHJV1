@@ -18,3 +18,5 @@
 
 # Cards de movimentação:
 ![alt text](cards_movimentacao.gif)
+# Tela New
+![alt text](tela_new.gif)
