@@ -24,7 +24,6 @@ export default function HistoricoList({data}) {
             <ValorText>
                 R$ {data.value}
             </ValorText>
-            <TipoText>Historico</TipoText>
         </Container>
     )
 }
