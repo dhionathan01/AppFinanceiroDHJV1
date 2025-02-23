@@ -20,3 +20,6 @@
 ![alt text](cards_movimentacao.gif)
 # Tela New
 ![alt text](tela_new.gif)
+
+# Criando botões de seleção
+![alt text](image-4.png)
