@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     Container,
     Message,
@@ -9,19 +9,25 @@ import {
     LogountText,
 } from "./styles";
 import Header from "../../components/Header";
+import { AuthContext } from "../../contexts/auth";
+
+import { useNavigation } from "@react-navigation/native";
+
 export default function Profile() {
+    const { user , signOut} = useContext(AuthContext);
+    const navigation = useNavigation();
     return (
         <Container>
             <Header title={"Meu perfil"}/>
             <Message>Hey, bem vindo de volta!</Message>
             <Name numberOfLines={1}>
-                Dhionathan
+                {user && user.name}
             </Name>
-            <NewLink>
+            <NewLink onPress={()=> navigation.navigate('Registrar')}>
                 <NewText>Fazer registro</NewText>
             </NewLink>
 
-            <LogoutButton>
+            <LogoutButton onPress={() => signOut()}>
                 <LogountText>Sair</LogountText>
             </LogoutButton>
         </Container>
