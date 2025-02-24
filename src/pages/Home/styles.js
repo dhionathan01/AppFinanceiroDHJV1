@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Background = styled.SafeAreaView`
+flex: 1;
 `;
 export const Title = styled.Text`
     margin-left: 4px;
@@ -26,5 +27,6 @@ export const Area = styled.View`
     align-items: baseline;
 `;
 export const List = styled.FlatList`
+    flex: 1;
     background-color: #FFF;
 `;
