@@ -38,3 +38,6 @@
 
 # Indo para criação de registros e fazendo logout pelo perfil
 ![alt text](navegacao_e_logout.gif)
+
+# Drawner personalizado
+![alt text](image-7.png)
