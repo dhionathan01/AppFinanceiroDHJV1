@@ -42,8 +42,20 @@ export default function Home() {
         getMovements();
 
         return () => isActivate = false;
-    }, [isFocused])
+    }, [isFocused, dateMovements])
     console.log(movements)
+    async function handleDelete(id) {
+        try {
+            await api.delete(`/receives/delete/`, {
+                params: {
+                    item_id: id
+                }
+            })
+            setDateMovements(new Date())
+        } catch (err) {
+            console.err(err)
+        }
+    }
     return (
         <Background>
             <Header title={'Minhas movimentações'} />
@@ -68,7 +80,11 @@ export default function Home() {
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
                 contetnContainerStyle={{paddingBottom:20}}
-                renderItem={({ item }) => <HistoricoList data={ item} />}
+                renderItem={({ item }) =>
+                    <HistoricoList
+                        data={item}
+                        deleteItem={handleDelete}
+                    />}
             />
 
         </Background>

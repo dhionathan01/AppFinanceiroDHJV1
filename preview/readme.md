@@ -29,3 +29,6 @@
 
 # Listagem de receitas e despesas
 ![alt text](image-5.png)
+
+# Deletando gastos ou ganhos registrados:
+![alt text](deletando_registros.gif)
