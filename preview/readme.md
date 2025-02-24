@@ -26,3 +26,9 @@
 
 # Adicionando novas receitas e despesas
 ![alt text](adicionan_novas_despesas_receitas.gif)
+
+# Listagem de receitas e despesas
+![alt text](image-5.png)
+
+# Deletando gastos ou ganhos registrados:
+![alt text](deletando_registros.gif)
