@@ -32,3 +32,6 @@
 
 # Deletando gastos ou ganhos registrados:
 ![alt text](deletando_registros.gif)
+
+# Tela perfil 
+![alt text](image-6.png)
