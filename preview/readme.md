@@ -32,3 +32,9 @@
 
 # Deletando gastos ou ganhos registrados:
 ![alt text](deletando_registros.gif)
+
+# Tela perfil 
+![alt text](image-6.png)
+
+# Indo para criação de registros e fazendo logout pelo perfil
+![alt text](navegacao_e_logout.gif)
