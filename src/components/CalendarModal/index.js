@@ -1,0 +1,18 @@
+import React from "react";
+import { Text, TouchableWithoutFeedback, View } from "react-native";
+import { Container,ButtonFilter, ButtonFilterText, ModalContent } from "./styles";
+
+export default function CalendarModal({setVisible}) {
+    return (
+        <Container>
+            <TouchableWithoutFeedback onPress={setVisible}>
+                <View style={{flex: 1}}></View>
+            </TouchableWithoutFeedback>
+            <ModalContent>
+                <ButtonFilter>
+                    <ButtonFilterText>Modal Content</ButtonFilterText>
+                </ButtonFilter>
+            </ModalContent>
+        </Container>
+    )
+}
