@@ -46,7 +46,7 @@ export default function Home() {
 
         return () => isActivate = false;
     }, [isFocused, dateMovements])
-    console.log(movements)
+
     async function handleDelete(id) {
         try {
             await api.delete(`/receives/delete/`, {
@@ -58,6 +58,9 @@ export default function Home() {
         } catch (err) {
             console.err(err)
         }
+    }
+    function filterDateMovements(dateSelected) {
+        setDateMovements(dateSelected)
     }
     return (
         <Background>
@@ -94,7 +97,10 @@ export default function Home() {
                 animationType="fade"
                 transparent={true}
             >
-                <CalendarModal setVisible={()=> setModalVisible(false)} />
+                <CalendarModal
+                    setVisible={() => setModalVisible(false)}
+                    handleFilter={filterDateMovements}
+                />
             </Modal>
         </Background>
     )
