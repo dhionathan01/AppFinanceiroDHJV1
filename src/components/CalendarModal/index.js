@@ -3,7 +3,10 @@ import { Text, TouchableWithoutFeedback, View } from "react-native";
 import { Container,ButtonFilter, ButtonFilterText, ModalContent } from "./styles";
 
 import { Calendar, LocaleConfig } from 'react-native-calendars';
+/* import { ptBR } from "./localeCalendar";
 
+LocaleConfig.locales['pt-BR'] = ptBR;
+LocaleConfig.defaultLocale = 'pt-br'; */
 export default function CalendarModal({ setVisible, handleFilter }) {
     const [dateNow, setDateNow] = useState(new Date());
     const [markeddates, setMarkedDates] = useState({});
