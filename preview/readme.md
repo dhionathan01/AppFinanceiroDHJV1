@@ -41,3 +41,9 @@
 
 # Drawner personalizado
 ![alt text](image-7.png)
+
+# Usando calendar component:
+![alt text](image-8.png)
+
+# Filtrando movimentações:
+![alt text](<filtrando movimentações.gif>)

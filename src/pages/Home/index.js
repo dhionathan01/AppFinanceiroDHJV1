@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import { View, Text, Button, TouchableOpacity } from "react-native"
+import { View, Text, Button, TouchableOpacity, Modal } from "react-native"
 
 import { AuthContext } from "../../contexts/auth";
 
@@ -12,18 +12,24 @@ import { useIsFocused } from "@react-navigation/native";
 import BalanceItem from "../../components/BalanceItem";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import HistoricoList from "../../components/HistoricoList";
+import CalendarModal from "../../components/CalendarModal";
+
 export default function Home() {
     const { signOut, user } = useContext(AuthContext)
     const isFocused = useIsFocused();
     const [listBalance, setListBalance] = useState([]);
     const [dateMovements, setDateMovements] = useState(new Date())
     const [movements, setMovements] = useState([]);
+    const [modalVisible, setModalVisible] =  useState(false);
 
     useEffect(() => {
         let isActivate = true;
 
         async function getMovements() {
-            let dateFormated = format(dateMovements, 'dd/MM/yyyy')
+            let date = new Date(dateMovements)
+            let onlyDate = date.valueOf() + date.getTimezoneOffset() * 60 * 1000;
+            
+            let dateFormated = format(onlyDate, 'dd/MM/yyyy')
             const receives = await api.get('/receives', {
                 params: {
                     date: dateFormated
@@ -43,7 +49,7 @@ export default function Home() {
 
         return () => isActivate = false;
     }, [isFocused, dateMovements])
-    console.log(movements)
+
     async function handleDelete(id) {
         try {
             await api.delete(`/receives/delete/`, {
@@ -55,6 +61,9 @@ export default function Home() {
         } catch (err) {
             console.err(err)
         }
+    }
+    function filterDateMovements(dateSelected) {
+        setDateMovements(dateSelected)
     }
     return (
         <Background>
@@ -69,7 +78,7 @@ export default function Home() {
                 ) }
             />
             <Area>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setModalVisible(true)}>
                     <Icon name={"event"} color={"#121212"} size={30} />
                 </TouchableOpacity>
                 <Title>Ultimas movimentações</Title>
@@ -86,7 +95,16 @@ export default function Home() {
                         deleteItem={handleDelete}
                     />}
             />
-
+            <Modal
+                visible={modalVisible}
+                animationType="fade"
+                transparent={true}
+            >
+                <CalendarModal
+                    setVisible={() => setModalVisible(false)}
+                    handleFilter={filterDateMovements}
+                />
+            </Modal>
         </Background>
     )
 }
